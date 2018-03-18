@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-    entry: './src/app.js',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -15,6 +15,13 @@ const config = {
                 use: 'babel-loader'
             }
         ]
-    }
+    },
+    plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    REACT_APP_API_URL: JSON.stringify(process.env.REACT_APP_API_URL)
+                }
+            }),
+        ]
 };
 module.exports = config;
