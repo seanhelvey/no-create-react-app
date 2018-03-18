@@ -22,6 +22,12 @@ const config = {
                     REACT_APP_API_URL: JSON.stringify(process.env.REACT_APP_API_URL)
                 }
             }),
-        ]
+        ],
+    devServer: {
+      contentBase: path.join(__dirname, "dist"),
+      compress: true,
+      port: 9000
+    }
+
 };
 module.exports = config;
